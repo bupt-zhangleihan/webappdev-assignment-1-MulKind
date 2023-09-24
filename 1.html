@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Demo</title>
+  <style>
+    .copyright:hover{
+      display: none;
+    }
+  </style>
+  <script type="text/javascript" src="homework.js"></script>
+  <script type="text/javascript">
+    let item_list = []; //列表类型，表示购物车列表
+    // let item_list = new Array();
+    let item; //此时item为Undefined类型，表示即将加入购物车的商品
+    function input(){
+      let item_id = document.getElementById("id");  //字符串类型，表示商品id
+      let item_name = document.getElementById("name");  //字符串类型，表示商品名
+      let item_num = document.getElementById("num");  //Number类型，表示商品数量
+      let item_price = document.getElementById("price");  //Number类型，表示商品单价
+      let item_type = document.getElementById('type');  //字符串类型，表示商品型号
+      let item_discount = document.getElementById('discount');  //Number类型，表示折扣
+      // 定义购物车
+      let id = item_id.value;
+      let name = item_name.value;
+      let num = item_num.value;
+      let price = item_price.value;
+      let type = item_type.value;
+      let discount = item_discount.value;
+      // if(id == null||name == null||num == null||price == null||type == null||discount == null){
+      //   alert('No null');
+      //   return ;
+      // }
+      item = {'id':id,'name':name, 'num':num, 'price':price, 'type':type, 'discount':discount}; //此时item为字典类型
+      let length = item_list.push(item)
+      let jsonData = JSON.stringify(item_list);   //将对象转换为字符串类型，再进行输出
+      alert('Number_Df_Items = ' + length + '\n' + jsonData);
+      item = null;  //清空item，此时item为Null类型
+    }
+/*    function check(list){
+        window.alert(list);
+    }*/
+  </script>
+</head>
+<body>
+  <div>
+    Shopping Cart
+    <br/>
+    <label for="id"></label><input type="text" id="id" placeholder="id"/>
+    <label for="name"></label><input type="text" id="name" placeholder="name"/>
+    <label for="num"></label><input type="text" id="num" placeholder="num"/>
+    <label for="price"></label><input type="text" id="price" placeholder="price"/>
+    <label for="type"></label><input type="text" id="type" placeholder="type"/>
+    <label for="discount"></label><input type="text" id="discount" placeholder="discount"/>
+    <br/>
+  <input type="button" onclick="input()" value="Add">
+  </div>
+  <div class="triangleArea">
+    Calculate the triangle area
+    <br/>
+    <label for="a"></label><input type="text" id="a" placeholder="a"/>
+    <label for="b"></label><input type="text" id="b" placeholder="b"/>
+    <label for="c"></label><input type="text" id="c" placeholder="c"/>
+    <br/>
+    <input type="button" onclick="triangleArea()" value="Calculate"/>
+    <label for="result"></label><input type="text" id="result" placeholder="result">
+  </div>
+  <div class="copyright">Copyright © 2023-2023</div>
+</body>
+</html>
